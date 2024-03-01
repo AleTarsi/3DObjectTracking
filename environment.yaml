@@ -1,0 +1,24 @@
+name: ICGP
+channels:
+  - conda-forge
+dependencies:
+  - conda-forge::eigen # Repo
+  - conda-forge::glew # Repo
+  - conda-forge::glfw # Repo
+  - conda-forge::libopencv==4.3.0 # Repo
+  - conda-forge::cudatoolkit  # Repo
+  - conda-forge::gtest # Repo
+  - conda-forge::librealsense # Repo
+  - conda-forge::doxygen # Repo
+  - conda-forge::ninja # Silvio: issue comment https://github.com/icub-tech-iit/project-jl2-camozzi/issues/81#issuecomment-1966823819
+  - conda-forge::cmake # Silvio
+  - conda-forge::make # Silvio
+  - conda-forge::compilers # Silvio
+  - conda-forge::pkg-config # Silvio
+  - conda-forge::mesa-libgl-devel-cos7-x86_64 # Silvio: issue comment https://github.com/icub-tech-iit/project-jl2-camozzi/issues/81#issuecomment-1968504664
+  - conda-forge::mesa-dri-drivers-cos7-x86_64 # Silvio
+  - conda-forge::libselinux-cos7-x86_64 # Silvio
+  - conda-forge::libxdamage-cos7-x86_64 # Silvio
+  - conda-forge::libxxf86vm-cos7-x86_64 # Silvio
+  - conda-forge::libxext-cos7-x86_64 # Silvio
+  - conda-forge::xorg-libxfixes # Silvio

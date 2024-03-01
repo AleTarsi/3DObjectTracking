@@ -375,6 +375,7 @@ bool Tracker::UpdateViewers(int iteration) {
     for (auto &viewer_ptr : viewer_ptrs_) {
       viewer_ptr->UpdateViewer(iteration);
     }
+    ExecuteDetection(true);
     char key = cv::waitKey(viewer_time_);
     if (key == 'd') {
       ExecuteDetection(false);

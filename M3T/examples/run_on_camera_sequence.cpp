@@ -2,7 +2,7 @@
 // Copyright (c) 2023 Manuel Stoiber, German Aerospace Center (DLR)
 
 #include <filesystem/filesystem.h>
-#include <m3t/azure_kinect_camera.h>
+#include <m3t/realsense_camera.h>
 #include <m3t/basic_depth_renderer.h>
 #include <m3t/body.h>
 #include <m3t/common.h>
@@ -22,7 +22,7 @@
 #include <string>
 
 int main(int argc, char *argv[]) {
-  if (argc < 3) {
+  if (argc < 2) {
     std::cerr << "Not enough arguments: Provide directory and body_names";
     return -1;
   }
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
   constexpr bool kUseDepthModality = true;
   constexpr bool kMeasureOcclusions = true;
   constexpr bool kModelOcclusions = false;
-  constexpr bool kVisualizePoseResult = false;
+  constexpr bool kVisualizePoseResult = true;
   constexpr bool kSaveImages = false;
   const std::filesystem::path save_directory{""};
 
@@ -49,9 +49,9 @@ int main(int argc, char *argv[]) {
 
   // Set up cameras
   auto color_camera_ptr{
-      std::make_shared<m3t::AzureKinectColorCamera>("azure_kinect_color")};
+      std::make_shared<m3t::RealSenseColorCamera>("real_sense_color")};
   auto depth_camera_ptr{
-      std::make_shared<m3t::AzureKinectDepthCamera>("azure_kinect_depth")};
+      std::make_shared<m3t::RealSenseDepthCamera>("real_sense_depth")};
 
   // Set up viewers
   auto color_viewer_ptr{std::make_shared<m3t::NormalColorViewer>(
@@ -133,7 +133,7 @@ int main(int argc, char *argv[]) {
 
     // Set up detector
     std::filesystem::path detector_path{directory /
-                                        (body_name + "_detector.yaml")};
+                                        (body_name + "_static_detector.yaml")};
     auto detector_ptr{std::make_shared<m3t::StaticDetector>(
         body_name + "_detector", detector_path, optimizer_ptr)};
     tracker_ptr->AddDetector(detector_ptr);
