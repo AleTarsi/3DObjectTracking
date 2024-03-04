@@ -22,13 +22,13 @@
 #include <string>
 
 int main(int argc, char *argv[]) {
-  if (argc < 2) {
+  if (argc < 3) {
     std::cerr << "Not enough arguments: Provide directory and body_names";
     return -1;
   }
   const std::filesystem::path directory{argv[1]};
   std::vector<std::string> body_names;
-  for (int i = 2; i < argc; ++i) {
+  for (int i = 3; i < argc; ++i) {
     body_names.push_back(std::string{argv[i]});
   }
 
