@@ -1,6 +1,6 @@
 %YAML:1.2
 geometry_path: "metalObj00.obj"
-geometry_unit_in_meter: 1.0
+geometry_unit_in_meter: 0.001
 geometry_counterclockwise: 1
 geometry_enable_culling: 1
 geometry2body_pose: !!opencv-matrix
